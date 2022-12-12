@@ -1,0 +1,18 @@
+<div class="container mt-4">
+    <h1>Publicaciones</h1>
+    <div class="card mb-3" *ngFor="let item of posts | paginate: { itemsPerPage: 10, currentPage: page }">
+        <div class="card-header"><fa-icon [icon]="user"></fa-icon> {{ item.name }}</div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-10">
+              <h5 class="card-title"><a class="descripcion-post">{{ item.title }}</a></h5>
+            </div>
+            <div class="col">
+              <a [routerLink]="['/id/comments']" routerLinkActive="router-link-active"  class="btn btn-outline-secondary">Ver comentarios</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <pagination-controls class="mypages mt-3" (pageChange)="page = $event" previousLabel="Anterior"  nextLabel="Siguiente"></pagination-controls>
+</div>

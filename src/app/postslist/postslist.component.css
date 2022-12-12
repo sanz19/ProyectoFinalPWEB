@@ -1,0 +1,17 @@
+pagination-controls {
+    text-align: center;
+}
+.mypages ::ng-deep .current {
+    background-color: #9ec7cb;
+    font-weight: bold;
+}
+
+.descripcion-post:hover {
+    color: #b51d46;
+}
+
+.descripcion-post {
+    text-decoration: none;
+    color: #212529;
+    cursor: pointer;
+}

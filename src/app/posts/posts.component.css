@@ -1,0 +1,7 @@
+pagination-controls {
+    text-align: center;
+}
+.mypages ::ng-deep .current {
+    background-color: #9ec7cb;
+    font-weight: bold;
+}
