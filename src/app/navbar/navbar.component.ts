@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faLaptopCode } from '@fortawesome/free-solid-svg-icons';
-import { faCommentDots, faHouseLaptop } from '@fortawesome/free-solid-svg-icons'
-import { faGit, faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faCommentDots, faHouseLaptop, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 
 @Component({
@@ -14,6 +14,7 @@ export class NavbarComponent implements OnInit {
   smileicon = faCommentDots;
   homeicon = faHouseLaptop;
   gh = faGithub;
+  userlogo = faUser;
 
   constructor() { }
 
