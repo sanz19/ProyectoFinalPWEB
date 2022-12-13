@@ -7,10 +7,9 @@ import { PostslistComponent } from './postslist/postslist.component';
 
 const routes: Routes = [
   { path: "home", component: PostsComponent },
-  { path: "allposts", component: PostsComponent },
   { path: "postslist", component: PostslistComponent },
   { path: "post/:id", component: PostComponent },
-  { path: ":id/comments", component: CommentsComponent },
+  { path: "post/:id/comments", component: CommentsComponent },
 ];
 
 @NgModule({

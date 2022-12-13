@@ -1,14 +1,12 @@
 <div class="container mt-4">
-    <h1>Publicaciones</h1>
+    <h1><fa-icon [icon]="smileicon"></fa-icon> Feed de publicaciones</h1>
+    <hr>
     <div class="card mb-3" *ngFor="let item of posts | paginate: { itemsPerPage: 10, currentPage: page }">
         <div class="card-header"><fa-icon [icon]="user"></fa-icon> {{ item.name }}</div>
         <div class="card-body">
           <div class="row">
             <div class="col-10">
-              <h5 class="card-title"><a class="descripcion-post">{{ item.title }}</a></h5>
-            </div>
-            <div class="col">
-              <a [routerLink]="['/id/comments']" routerLinkActive="router-link-active"  class="btn btn-outline-secondary">Ver comentarios</a>
+              <h5 class="card-title"><a class="descripcion-post" [routerLink]="['/post', item.id]" routerLinkActive="router-link-active" >{{ item.title }}</a></h5>
             </div>
           </div>
         </div>

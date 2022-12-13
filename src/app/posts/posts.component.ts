@@ -3,6 +3,8 @@ import { PostsapiService } from '../postsapi.service';
 
 import { Publicaciones } from '../Modelos/publicaciones';
 import { Usuarios } from '../Modelos/usuarios';
+import { faHouseLaptop } from '@fortawesome/free-solid-svg-icons'
+
 
 @Component({
   selector: 'app-posts',
@@ -14,6 +16,7 @@ export class PostsComponent implements OnInit {
   posts: Publicaciones[] = [];
   users: Usuarios[] = [];
   page!: number;
+  homeicon = faHouseLaptop;
 
 
   constructor(private service: PostsapiService) { 

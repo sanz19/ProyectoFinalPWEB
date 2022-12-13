@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Publicaciones } from '../Modelos/publicaciones';
 import { Usuarios } from '../Modelos/usuarios';
 import { PostsapiService } from '../postsapi.service';
-import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faCommentDots } from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-postslist',
@@ -15,6 +15,7 @@ export class PostslistComponent implements OnInit {
   users: Usuarios[] = [];
   page!: number;
   user = faUser;
+  smileicon = faCommentDots;
 
   constructor(private service: PostsapiService) { 
     this.service.obtenerPosts().subscribe((publicacion: any)=> {

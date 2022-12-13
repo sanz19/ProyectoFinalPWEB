@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PostsapiService } from '../postsapi.service';
+import { faComment } from '@fortawesome/free-regular-svg-icons';
+
 
 @Component({
   selector: 'app-comments',
@@ -11,6 +13,7 @@ export class CommentsComponent implements OnInit {
 
   id: any;
   post: any;
+  iconcomment = faComment;
   constructor(private service: PostsapiService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {

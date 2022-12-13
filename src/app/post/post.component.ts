@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { Publicaciones } from '../Modelos/publicaciones';
-import { Usuarios } from '../Modelos/usuarios';
 import { PostsapiService } from '../postsapi.service';
 
 @Component({
@@ -13,32 +11,29 @@ import { PostsapiService } from '../postsapi.service';
 export class PostComponent implements OnInit {
 
   id: any;
+  userId = 0;
   posts: any;
   users: any;
+  verComentarios: boolean = false;
   user = faUser;
-  constructor(private service: PostsapiService, private route: ActivatedRoute) { }
+  
+
+  constructor(private service: PostsapiService, private route: ActivatedRoute) { 
+    this.verComentarios = false;
+    this.id = this.route.snapshot.paramMap.get('id');
+    this.service.obtenerPost(this.id).subscribe((publicacion: any)=> {
+      this.userId = publicacion.userId;
+      this.posts = publicacion;
+      console.log(typeof(this.userId));
+      console.log(typeof(publicacion.userId));
+      this.service.obtenerUsuario(publicacion.userId).subscribe((usuario: any)=> {
+        this.users = usuario;
+      });
+    });
+  }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.paramMap.get('id');
-    this.service.obtenerPost(this.id).subscribe((resp: any) => {
-      this.posts = resp;
-      console.log(resp);
-    })
-    this.service.obtenerUsuarios().subscribe((usuario: any)=> {
-      this.users = usuario;
-      this.setUserName();
-    })
+    this.verComentarios = false;
   }
-  setUserName() {
-    if (this.posts && this.users) {
-      for(let post of this.posts) {
-        for(let user of this.users) {
-          if (post.userId === user.id) {
-            post.name = user.name
-            post.username = user.username
-          }
-        }
-      }
-    }
-  }
+  
   }

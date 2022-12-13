@@ -1,13 +1,18 @@
+<div class="container mt-4">
+    <h1><fa-icon [icon]="homeicon"></fa-icon> Publicaciones</h1>
+    <hr>
+</div>
 <div class="container d-flex">
+    <hr>
     <div class="row">
         <div class="col justify-content-center p-3 w-100" *ngFor="let item of posts | paginate: { itemsPerPage: 8, currentPage: page }">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title">{{ item.title }}</h5>
+                    <h5 class="card-title"><a class="descripcion-post" [routerLink]="['/post', item.id]">{{ item.title }}</a></h5>
                     <h6 class="card-subtitle mb-2 text-muted">@{{ item.username }}</h6>
                     <p class="card-text">{{ item.body }}</p>
-                    <a href="#" class="card-link">{{ item.name }}</a>
-                    <a href="#" class="card-link">Another link</a>
+                    <!-- <a href="#" class="card-link">{{ item.name }}</a>
+                    <a href="#" class="card-link">Another link</a> -->
                 </div>
             </div>
         </div> 

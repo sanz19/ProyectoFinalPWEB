@@ -1,5 +1,5 @@
 <div class="card mb-3" *ngFor="let item of post">
-    <div class="card-header"><strong>{{ item.name }}</strong><em> by {{ item.email }}</em></div>
+    <div class="card-header"><fa-icon [icon]="iconcomment"></fa-icon><strong> {{ item.name }}</strong><em> by {{ item.email }}</em></div>
     <div class="card-body">
         {{ item.body }}
     </div>

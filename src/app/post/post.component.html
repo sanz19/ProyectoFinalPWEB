@@ -1,6 +1,6 @@
 <div class="container mt-4">
   <h1>Publicaciones</h1>
-  <div class="card mb-3" *ngIf="posts">
+  <div class="card mb-3">
       <div class="card-header"><fa-icon [icon]="user"></fa-icon> {{ users.name }}</div>
       <div class="card-body">
         <div class="row">
@@ -9,10 +9,13 @@
             <p>{{ posts.body }}</p>
           </div>
           <div class="col">
-            <a [routerLink]="['/id/comments']" routerLinkActive="router-link-active"  class="btn btn-outline-secondary">Ver comentarios</a>
+            <a class="btn btn-outline-secondary" *ngIf="!verComentarios" (click)="verComentarios=true;">Mostrar comentarios</a>
+            <a class="btn btn-outline-secondary" *ngIf="verComentarios" (click)="verComentarios=false;">Ocultar comentarios</a>
           </div>
-
         </div>
       </div>
     </div>
-</div>
+    <div *ngIf="verComentarios">
+      <app-comments></app-comments>
+    </div>
+  </div>
