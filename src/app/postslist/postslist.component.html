@@ -2,7 +2,7 @@
     <h1><fa-icon [icon]="smileicon"></fa-icon> Feed de publicaciones</h1>
     <hr>
     <div class="card mb-3" *ngFor="let item of posts | paginate: { itemsPerPage: 10, currentPage: page }">
-        <div class="card-header"><fa-icon [icon]="user"></fa-icon> {{ item.name }}</div>
+        <div class="card-header"><a [routerLink]="['/users', item.userId]" class="descripcion-post"><fa-icon [icon]="user"></fa-icon> {{ item.name }}</a></div>
         <div class="card-body">
           <div class="row">
             <div class="col-10">

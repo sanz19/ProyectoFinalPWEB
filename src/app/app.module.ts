@@ -22,7 +22,7 @@ import { PostComponent } from './post/post.component';
     PostslistComponent,
     CommentsComponent,
     UserComponent,
-    PostComponent
+    PostComponent,
   ],
   imports: [
     BrowserModule,

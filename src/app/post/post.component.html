@@ -2,7 +2,7 @@
   <h1>Publicación {{ posts.id }}</h1>
   <hr>
   <div class="card mb-3">
-      <div class="card-header"><fa-icon [icon]="user"></fa-icon> {{ users.name }}</div>
+      <div class="card-header"><a class="descripcion-post" [routerLink]="['/users', posts.userId]"><fa-icon [icon]="user"></fa-icon> {{ users.name }}</a></div>
       <div class="card-body">
         <div class="row">
           <div class="col-10">
@@ -20,3 +20,4 @@
       <app-comments></app-comments>
     </div>
   </div>
+  

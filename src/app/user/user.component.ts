@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { PostsapiService } from '../postsapi.service';
+import { faUser } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-user',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  constructor() { }
+  id: any;
+  users: any;
+  user = faUser;
+
+  constructor(private service: PostsapiService, private route: ActivatedRoute) { 
+    this.id = this.route.snapshot.paramMap.get('id');
+    this.service.obtenerUsuario(this.id).subscribe((usuario: any)=> {
+      this.users = usuario;
+    });
+
+    
+  }
 
   ngOnInit(): void {
+
   }
 
 }

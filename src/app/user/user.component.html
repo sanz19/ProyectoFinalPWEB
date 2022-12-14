@@ -1,1 +1,18 @@
-<p>user works!</p>
+<div class="container mt-4">
+  <h1><fa-icon [icon]="user"></fa-icon> Perfil de usuario {{users.id}}</h1>
+  <hr>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{ users.name }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">@{{ users.username }}</h6>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong>Trabaja en: </strong>{{ users.company.name }}</li>
+          <li class="list-group-item"><strong>Correo: </strong><a href="#" class="link">{{ users.email}}</a>  </li>
+          <li class="list-group-item"><strong>Website: </strong><a href="#" class="link">{{users.website}}</a></li>
+        </ul>
+        <div class="card-body">
+            <p class="card-text"><strong>Dirección: </strong>{{ users.address.street }}, {{ users.address.suite }}. {{ users.address.city }} City, {{users.address.zipcode}}.</p>
+        </div>
+      </div>
+</div>
